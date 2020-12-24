@@ -1,0 +1,80 @@
+// In order to know how long to delay at the end of the loop, we need to know how long
+    // each frame should last.
+    /*
+    uint32_t min_frame_ticks;
+
+    if (framerate_limit > 0) {
+        min_frame_ticks = 1000/framerate_limit;
+    }
+
+    // Main loop
+    
+    while (!quit_app)
+    {
+        uint32_t start_ticks = SDL_GetTicks();
+        // Poll and handle events (inputs, window resize, etc.)
+        // You can read the io.WantCaptureMouse, io.WantCaptureKeyboard flags to tell if dear imgui wants to use your inputs.
+        // - When io.WantCaptureMouse is true, do not dispatch mouse input data to your main application.
+        // - When io.WantCaptureKeyboard is true, do not dispatch keyboard input data to your main application.
+        // Generally you may always pass all inputs to dear imgui, and hide them from your application based on those two flags.
+
+        
+        BOOST_FOREACH(AppWindow* awin, app_windows) {
+            awin->background();
+        }
+
+        SDL_Event event;
+        while (SDL_PollEvent(&event))
+        {
+            ImGui_ImplSDL2_ProcessEvent(&event);
+            if (event.type == SDL_QUIT)
+                quit_app = true;
+            if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_CLOSE && event.window.windowID == SDL_GetWindowID(sdl_window))
+                quit_app = true;
+
+            BOOST_FOREACH(AppWindow* awin, app_windows) {
+                awin->handle_event(&event);
+            }
+        }
+
+
+        if (!(SDL_GetWindowFlags(sdl_window) & (SDL_WINDOW_MINIMIZED))) {
+        // if (SDL_GetWindowFlags(sdl_window) & (SDL_WINDOW_MINIMIZED)) {
+            // Start the Dear ImGui frame
+            ImGui_ImplOpenGL3_NewFrame();
+            ImGui_ImplSDL2_NewFrame(sdl_window);
+            ImGui::NewFrame();
+
+            // 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
+            if (show_demo_window) {
+                ImGui::ShowDemoWindow(&show_demo_window);
+            }
+            if (show_style_window) {
+                ImGui::Begin("Style Editor", &show_style_window);
+                ImGui::ShowStyleEditor(style);
+                ImGui::End();
+            }
+            
+            BOOST_FOREACH(AppWindow* awin, app_windows) {
+                awin->update();
+            }
+            
+            // Rendering
+            ImGui::Render();
+            glViewport(0, 0, (int)io->DisplaySize.x, (int)io->DisplaySize.y);
+            glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
+            // glClear(GL_COLOR_BUFFER_BIT);
+            glClear(GL_COLOR_BUFFER_BIT);
+            ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+            SDL_GL_SwapWindow(sdl_window);
+        }
+
+        if (framerate_limit > 0) {
+            uint32_t frame_ticks = SDL_GetTicks() - start_ticks;
+
+            if (frame_ticks < min_frame_ticks) {
+                SDL_Delay(min_frame_ticks - frame_ticks);
+            }
+        }
+    }
+    */

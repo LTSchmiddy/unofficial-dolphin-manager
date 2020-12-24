@@ -1,0 +1,32 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Debug (Windows)",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build-Debug/bin/dolphin-manager.exe",
+            "args": [],
+            "stopAtEntry": false,
+            // "cwd": "${workspaceFolder}/build-Debug/debug-working-directory",
+            "cwd": "${workspaceFolder}/cwd",
+            "environment": [],
+            "externalConsole": false
+        },
+        {
+            "name": "Launch Release (Windows)",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build-Release/bin/dolphin-manager.exe",
+            "args": [],
+            "stopAtEntry": false,
+            // "cwd": "${workspaceFolder}/build-Release/debug-working-directory",
+            "cwd": "${workspaceFolder}/cwd",
+            "environment": [],
+            "externalConsole": false
+        }
+    ]
+}

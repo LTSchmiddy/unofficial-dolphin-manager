@@ -1,0 +1,6 @@
+/build-*
+
+/CMakeUserPresets.json
+/mcppt_settings.json
+/mcppt-toolchain.cmake
+/cwd/
